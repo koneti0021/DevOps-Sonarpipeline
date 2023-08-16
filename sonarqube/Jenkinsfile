@@ -1,16 +1,16 @@
-pipeline{
+pipeline {
     agent any
     environment {
-        PATH = "$PATH:/opt/apache-maven-3.9.4"
+        PATH = "$PATH:/opt/maven/bin"
     }
     stages{
-       stage('GetCode'){
+       stage('GetCode') {
             steps{
                 git 'https://github.com/koneti0021/DevOps-Sonarpipeline.git'
             }
          }        
-       stage('Build'){
-            steps{
+       stage('Build') {
+            steps {
                 sh 'mvn clean package'
             }
          }
